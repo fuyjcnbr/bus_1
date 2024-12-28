@@ -18,8 +18,6 @@ services:
     build:
       context: ./metric
     restart: always
-#    volumes:
-#      - service-data-volume:/service_data
     volumes:
         - ./service_data:/service_data
     depends_on:
@@ -37,21 +35,7 @@ services:
     build:
       context: ./plot
     restart: always
-#    volumes:
-#      - service-data-volume:/service_data
     volumes:
         - ./service_data:/service_data
     depends_on:
       - metric
-
-#volumes:
-#  service-data-volume:
-#    name: "service-data-volume"
-#networks:
-#  bdn:
-#    name: bdn
-#    driver: bridge
-#    ipam:
-#      driver: default
-#      config:
-#        - subnet: 172.23.0.0/24
